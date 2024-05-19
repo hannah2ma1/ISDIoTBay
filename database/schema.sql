@@ -1,0 +1,48 @@
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullName VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Devices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    unitPrice DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL
+);
+
+CREATE TABLE Orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT,
+    FOREIGN KEY (userId) REFERENCES Users(id),
+    orderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Payments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orderId INT,
+    FOREIGN KEY (orderId) REFERENCES Orders(id),
+    amount DECIMAL(10, 2) NOT NULL,
+    paymentMethod VARCHAR(50) NOT NULL,
+    paymentDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Shipments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orderId INT,
+    FOREIGN KEY (orderId) REFERENCES Orders(id),
+    shipmentMethod VARCHAR(50) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    shipmentDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Customers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    address VARCHAR(255) NOT NULL
+);
