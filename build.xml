@@ -23,17 +23,11 @@
 
     <target name="build" depends="compile">
         <mkdir dir="${war.dir}"/>
-        <copy todir="${classes.dir}">
-            <fileset dir="${web.dir}">
-                <exclude name="WEB-INF/**"/>
-            </fileset>
-        </copy>
-        <copy todir="${classes.dir}/WEB-INF">
-            <fileset dir="${web.dir}/WEB-INF"/>
-        </copy>
-        <war destfile="${war.dir}/${war.name}" webxml="${classes.dir}/WEB-INF/web.xml">
-            <classes dir="${classes.dir}"/>
+        <war destfile="${war.dir}/${war.name}" webxml="${web.dir}/WEB-INF/web.xml">
+            <fileset dir="${web.dir}" excludes="WEB-INF/**"/>
             <lib dir="${lib.dir}"/>
+            <classes dir="${classes.dir}"/>
+            <webinf dir="${web.dir}/WEB-INF"/>
         </war>
     </target>
 </project>
