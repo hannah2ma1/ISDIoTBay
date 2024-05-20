@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login - IoTBay</title>
+    <title>IoTBay - Home</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
@@ -26,14 +25,8 @@
         </div>
     </header>
     <div class="container">
-        <h2>Login</h2>
-        <form action="userController?action=login" method="post">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
+        <h2>Welcome to IoTBay</h2>
+        <p>Your one-stop shop for all IoT devices!</p>
     </div>
     <footer>
         <p>IoTBay &copy; 2024</p>

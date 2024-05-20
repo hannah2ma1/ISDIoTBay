@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>IoTBay</h1> 
+            <h1>IoTBay</h1>
             <nav>
                 <ul>
                     <li><a href="index.jsp">Home</a></li>
