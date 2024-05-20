@@ -1,0 +1,39 @@
+<project name="IoTBay" default="build" basedir=".">
+    <property name="src.dir" value="src/main/java"/>
+    <property name="web.dir" value="src/main/webapp"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="war.dir" value="dist"/>
+    <property name="war.name" value="IoTBay.war"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${war.dir}"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}">
+            <classpath>
+                <fileset dir="${lib.dir}" includes="**/*.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="build" depends="compile">
+        <mkdir dir="${war.dir}"/>
+        <copy todir="${classes.dir}">
+            <fileset dir="${web.dir}">
+                <exclude name="WEB-INF/**"/>
+            </fileset>
+        </copy>
+        <copy todir="${classes.dir}/WEB-INF">
+            <fileset dir="${web.dir}/WEB-INF"/>
+        </copy>
+        <war destfile="${war.dir}/${war.name}" webxml="${classes.dir}/WEB-INF/web.xml">
+            <classes dir="${classes.dir}"/>
+            <lib dir="${lib.dir}"/>
+        </war>
+    </target>
+</project>

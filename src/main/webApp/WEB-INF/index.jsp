@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +15,10 @@
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="login.jsp">Login</a></li>
                     <li><a href="register.jsp">Register</a></li>
-                    <li><a href="deviceCatalogue.jsp">Device Catalogue</a></li>
-                    <li><a href="order.jsp">Orders</a></li>
-                    <li><a href="payment.jsp">Payments</a></li>
-                    <li><a href="shipment.jsp">Shipments</a></li>
+                    <li><a href="device?action=list">Device Catalogue</a></li>
+                    <li><a href="order?action=list">Orders</a></li>
+                    <li><a href="payment?action=list">Payments</a></li>
+                    <li><a href="shipment?action=list">Shipments</a></li>
                     <li><a href="customerInfo.jsp">Customer Info</a></li>
                 </ul>
             </nav>
